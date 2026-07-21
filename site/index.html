@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+  <meta name="theme-color" content="#080514">
+  <meta property="og:title" content="Mibis — Eles estão aprendendo">
+  <meta property="og:description" content="Jogue Mibis diretamente no navegador ou baixe gratuitamente para Android.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://leal2026.github.io/Mibis/">
+  <meta property="og:image" content="https://leal2026.github.io/Mibis/assets/images/app_icon.png">
+  <title>Mibis</title>
+  <link rel="icon" href="assets/images/app_icon.png">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main id="launcher" aria-label="Abrir Mibis">
+    <button id="launchButton" class="icon-launch" aria-label="Jogar Mibis">
+      <img src="assets/images/app_icon.png" alt="Jogar Mibis">
+      <span>TOQUE PARA JOGAR</span>
+    </button>
+    <button id="buyButton" class="buy-button">BAIXAR PARA ANDROID</button>
+    <button id="shareButton" class="share-button">COMPARTILHAR O JOGO</button>
+  </main>
+
+  <section id="game" class="hidden" aria-label="Jogo Mibis">
+    <canvas id="canvas"></canvas>
+    <div class="hud" aria-live="polite">
+      <div><small>SCORE</small><strong id="score">00000000</strong></div>
+      <div class="lives"><small>VIDAS</small><strong id="lives">&#9829;&#9829;&#9829;&#9829;&#9829;&#9829;&#9829;</strong></div>
+    </div>
+    <div class="game-controls">
+      <button id="audioButton" aria-label="Ligar ou desligar som">SOM &#9835;</button>
+      <button id="exitButton" aria-label="Encerrar partida">ENCERRAR</button>
+    </div>
+  </section>
+
+  <dialog id="evolutionDialog" class="evolution">
+    <h2 id="evolutionTitle">EVOLU&Ccedil;&Atilde;O 1</h2>
+    <canvas id="evolutionCanvas" width="320" height="260"></canvas>
+    <p id="evolutionText"></p>
+  </dialog>
+
+  <dialog id="scoreDialog" class="score-dialog">
+    <h2 id="scoreDialogTitle">GAME OVER</h2>
+    <p class="final-score" id="finalScore">00000000</p>
+    <label>NOME / INICIAIS<input id="playerName" maxlength="10" autocomplete="nickname"></label>
+    <button id="saveScore">SALVAR SCORE</button>
+    <div class="end-actions">
+      <button id="playAgain">JOGAR NOVAMENTE</button>
+      <button id="returnMenu">MENU</button>
+    </div>
+    <h3>TOP FIVE</h3>
+    <ol id="topFive"></ol>
+  </dialog>
+
+  <dialog id="purchaseDialog" class="purchase-dialog">
+    <button id="closePurchase" class="dialog-close" aria-label="Fechar">&times;</button>
+    <img class="purchase-icon" src="assets/images/app_icon.png" alt="Mibis para Android">
+    <h2>MIBIS PARA ANDROID</h2>
+    <p class="price">DOWNLOAD GRATUITO</p>
+    <p>O Pix &eacute; uma doa&ccedil;&atilde;o opcional. Voc&ecirc; pode baixar o jogo com ou sem doa&ccedil;&atilde;o.</p>
+    <p class="download-counter"><strong id="downloadCount">0</strong> downloads realizados</p>
+    <div class="pix-card">
+      <small>CHAVE PIX &middot; CPF</small>
+      <strong id="pixKey">17909502877</strong>
+      <button id="copyPix">COPIAR CHAVE PIX</button>
+      <dl>
+        <div><dt>Favorecido</dt><dd>Marcos Antonio de Sousa Leal</dd></div>
+        <div><dt>Banco</dt><dd>Santander</dd></div>
+        <div><dt>Ag&ecirc;ncia</dt><dd>628</dd></div>
+        <div><dt>Conta corrente</dt><dd>01019164-2</dd></div>
+      </dl>
+    </div>
+    <div class="download-actions">
+      <button id="freeDownload" class="primary-action">BAIXAR GRATUITAMENTE</button>
+      <button id="donateDownload" class="donate-action">DOAR R$ 4,99 E BAIXAR</button>
+    </div>
+    <p id="paymentStatus" class="payment-status" role="status"></p>
+  </dialog>
+
+  <script src="game.js?v=15"></script>
+</body>
+</html>
