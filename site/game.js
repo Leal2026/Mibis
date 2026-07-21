@@ -332,7 +332,7 @@ $("saveScore").addEventListener("click", () => { const name=($("playerName").val
 
 async function refreshDownloadCount(){
   let count=0;
-  try{const response=await fetch("https://api.github.com/repos/Leal2026/Mibis/releases/tags/v1.0.0",{headers:{Accept:"application/vnd.github+json"}});if(response.ok){const data=await response.json(),asset=data.assets.find(item=>item.name==="Mibis.apk");count=Number(asset?.download_count)||0;}}
+  try{const response=await fetch("https://api.github.com/repos/Leal2026/Mibis/releases/tags/v1.1.0",{headers:{Accept:"application/vnd.github+json"}});if(response.ok){const data=await response.json(),asset=data.assets.find(item=>item.name==="Mibis.apk");count=Number(asset?.download_count)||0;}}
   catch{}$("downloadCount").textContent=count.toLocaleString("pt-BR");return count;
 }
 async function registerDownload(){
@@ -340,7 +340,7 @@ async function registerDownload(){
 }
 async function downloadGame(withDonation=false){
   if(withDonation){try{await navigator.clipboard.writeText($("pixKey").textContent);}catch{}}
-  await registerDownload();const link=document.createElement("a");link.href="https://github.com/Leal2026/Mibis/releases/download/v1.0.0/Mibis.apk";link.rel="noopener";document.body.appendChild(link);link.click();link.remove();
+  await registerDownload();const link=document.createElement("a");link.href="https://github.com/Leal2026/Mibis/releases/download/v1.1.0/Mibis.apk";link.rel="noopener";document.body.appendChild(link);link.click();link.remove();
   $("paymentStatus").textContent="Agradeço por divulgar meu trabalho.";
 }
 $("buyButton").addEventListener("click", () => { $("paymentStatus").textContent=""; refreshDownloadCount(); $("purchaseDialog").showModal(); });
